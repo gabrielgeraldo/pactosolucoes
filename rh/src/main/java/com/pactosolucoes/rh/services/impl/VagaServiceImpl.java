@@ -4,18 +4,24 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pactosolucoes.rh.domain.Vaga;
 import com.pactosolucoes.rh.domain.enums.StatusVaga;
+import com.pactosolucoes.rh.repositories.VagaRepository;
 import com.pactosolucoes.rh.services.VagaService;
 
 @Service
 public class VagaServiceImpl implements VagaService{
-
+	
+	
+	private VagaRepository repository;
+	
 	@Override
+	@Transactional
 	public Vaga salvar(Vaga vaga) {
-		// TODO Auto-generated method stub
-		return null;
+		vaga.setStatus(StatusVaga.ABERTA);
+		return repository.save(vaga);
 	}
 
 	@Override

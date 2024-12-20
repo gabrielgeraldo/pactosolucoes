@@ -30,10 +30,5 @@ public class Inscricao {
     
     @ManyToOne
     private Candidato candidato;
-    
-    public Inscricao(Vaga vaga, Candidato candidato){
-        this.vaga = vaga;
-        this.candidato = candidato;
-    }
 	
 }

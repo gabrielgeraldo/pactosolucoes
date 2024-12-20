@@ -29,10 +29,5 @@ public class Candidato {
     private String email;
     
     private String senha;
-    
-    public Candidato(CandidatoDTO candidatoRequest){
-        this.email = candidatoRequest.email();
-        this.senha = candidatoRequest.senha();
-    }
 	
 }

@@ -1,5 +1,7 @@
 package com.pactosolucoes.rh.dtos;
 
-public record VagaDTO(String titulo, String descricao) {
+import com.pactosolucoes.rh.domain.enums.StatusVaga;
+
+public record VagaDTO(String titulo, String descricao, StatusVaga status) {
 
 }

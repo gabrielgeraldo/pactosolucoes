@@ -1,5 +1,6 @@
 package com.pactosolucoes.rh.domain;
 
+import com.pactosolucoes.rh.domain.enums.StatusVaga;
 import com.pactosolucoes.rh.dtos.VagaDTO;
 
 import jakarta.persistence.Entity;
@@ -27,10 +28,6 @@ public class Vaga {
     private String id;
     private String titulo;
     private String descricao;
-
-    public Vaga(VagaDTO vagaRequest){
-        this.titulo = vagaRequest.titulo();
-        this.descricao = vagaRequest.descricao();
-    }
+    private StatusVaga status;
 	
 }
