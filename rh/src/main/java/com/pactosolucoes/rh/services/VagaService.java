@@ -15,10 +15,10 @@ public interface VagaService {
 	
 	void deletar(Vaga lancamento);
 	
-	List<Vaga> buscar( Vaga lancamentoFiltro );
+	List<Vaga> buscar( Vaga vagaFiltro );
 	
 	void atualizarStatus(Vaga vaga, StatusVaga status);
 	
-	Optional<Vaga> obterPorId(Long id);
+	Optional<Vaga> obterPorId(String id);
 	
 }
