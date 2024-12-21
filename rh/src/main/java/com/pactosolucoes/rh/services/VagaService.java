@@ -13,7 +13,7 @@ public interface VagaService {
 	
 	Vaga atualizar(Vaga vaga);
 	
-	void deletar(Vaga lancamento);
+	void deletar(Vaga vaga);
 	
 	List<Vaga> buscar( Vaga vagaFiltro );
 	
