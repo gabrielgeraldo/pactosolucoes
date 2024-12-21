@@ -29,6 +29,6 @@ public class Inscricao {
     private Vaga vaga;
     
     @ManyToOne
-    private Candidato candidato;
+    private Usuario usuario;
 	
 }

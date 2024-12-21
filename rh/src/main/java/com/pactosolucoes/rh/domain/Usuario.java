@@ -1,7 +1,5 @@
 package com.pactosolucoes.rh.domain;
 
-import com.pactosolucoes.rh.dtos.CandidatoDTO;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +18,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of="id") 
-public class Candidato {
+public class Usuario {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
