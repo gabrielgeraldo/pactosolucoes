@@ -30,5 +30,11 @@ public class Inscricao {
     
     @ManyToOne
     private Usuario usuario;
+
+	public Inscricao(Vaga vaga, Usuario usuario) {
+		super();
+		this.vaga = vaga;
+		this.usuario = usuario;
+	}
 	
 }

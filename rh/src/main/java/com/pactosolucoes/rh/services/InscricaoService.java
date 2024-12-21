@@ -3,18 +3,20 @@ package com.pactosolucoes.rh.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.pactosolucoes.rh.domain.Inscricao;
+import com.pactosolucoes.rh.dtos.InscricaoDTO;
+import com.pactosolucoes.rh.dtos.UsuarioDTO;
+import com.pactosolucoes.rh.dtos.VagaDTO;
 
 public interface InscricaoService {
 
-	Inscricao inscrever(Inscricao inscricao);
+	InscricaoDTO inscrever(VagaDTO vagaDTO, UsuarioDTO usuarioDTO);
 	
-	Inscricao atualizar(Inscricao inscricao);
+	InscricaoDTO atualizar(InscricaoDTO inscricaoDTO);
 	
-	void deletar(Inscricao inscricao);
+	void deletar(InscricaoDTO inscricaoDTO);
 	
-	List<Inscricao> buscar();
+	List<InscricaoDTO> buscar();
 	
-	Optional<Inscricao> obterPorId(String id);
+	Optional<InscricaoDTO> obterPorId(String id);
 	
 }

@@ -3,22 +3,22 @@ package com.pactosolucoes.rh.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.pactosolucoes.rh.domain.Vaga;
 import com.pactosolucoes.rh.domain.enums.StatusVaga;
+import com.pactosolucoes.rh.dtos.VagaDTO;
 
 
 public interface VagaService {
 
-	Vaga salvar(Vaga vaga);
+	VagaDTO salvar(VagaDTO vagaDTO);
 	
-	Vaga atualizar(Vaga vaga);
+	VagaDTO atualizar(VagaDTO vagaDTO);
 	
-	void deletar(Vaga vaga);
+	void deletar(VagaDTO vagaDTO);
 	
-	List<Vaga> buscar( Vaga vagaFiltro );
+	List<VagaDTO> buscar(VagaDTO vagaFiltroDTO);
 	
-	void atualizarStatus(Vaga vaga, StatusVaga status);
+	void atualizarStatus(VagaDTO vagaDTO, StatusVaga status);
 	
-	Optional<Vaga> obterPorId(String id);
+	Optional<VagaDTO> obterPorId(String id);
 	
 }
