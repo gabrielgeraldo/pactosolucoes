@@ -7,7 +7,7 @@ import com.pactosolucoes.rh.domain.Inscricao;
 
 public interface InscricaoService {
 
-	Inscricao salvar(Inscricao inscricao);
+	Inscricao inscrever(Inscricao inscricao);
 	
 	Inscricao atualizar(Inscricao inscricao);
 	

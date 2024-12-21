@@ -9,7 +9,7 @@ import com.pactosolucoes.rh.services.InscricaoService;
 public class InscricaoServiceImpl implements InscricaoService {
 
 	@Override
-	public Inscricao salvar(Inscricao inscricao) {
+	public Inscricao inscrever(Inscricao inscricao) {
 		// TODO Auto-generated method stub
 		return null;
 	}
