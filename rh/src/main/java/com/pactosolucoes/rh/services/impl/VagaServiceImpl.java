@@ -78,7 +78,7 @@ public class VagaServiceImpl implements VagaService {
 	}
 
 	@Override
-	public Optional<VagaDTO> obterPorId(String id) {
+	public Optional<VagaDTO> obterPorId(Long id) {
 		
 		Optional<Vaga> vagaRetorno = repository.findById(id);
 		

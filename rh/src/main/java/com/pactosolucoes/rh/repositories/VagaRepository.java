@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pactosolucoes.rh.domain.Vaga;
 
-public interface VagaRepository extends JpaRepository<Vaga, String> { 
+public interface VagaRepository extends JpaRepository<Vaga, Long> { 
 
 }

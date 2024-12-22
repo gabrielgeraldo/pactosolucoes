@@ -1,13 +1,13 @@
 package com.pactosolucoes.rh.domain;
 
-import com.pactosolucoes.rh.domain.enums.StatusVaga;
-import com.pactosolucoes.rh.dtos.VagaDTO;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.pactosolucoes.rh.domain.enums.StatusVaga;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,8 +24,8 @@ import lombok.Setter;
 public class Vaga {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String titulo;
     private String descricao;
     private StatusVaga status;

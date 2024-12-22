@@ -19,6 +19,6 @@ public interface VagaService {
 	
 	void atualizarStatus(VagaDTO vagaDTO, StatusVaga status);
 	
-	Optional<VagaDTO> obterPorId(String id);
+	Optional<VagaDTO> obterPorId(Long id);
 	
 }

@@ -2,6 +2,18 @@ package com.pactosolucoes.rh.dtos;
 
 import com.pactosolucoes.rh.domain.enums.StatusVaga;
 
-public record VagaDTO(String titulo, String descricao, StatusVaga status) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VagaDTO {
+
+	private String titulo;
+	
+	private String descricao;
+	
 }
