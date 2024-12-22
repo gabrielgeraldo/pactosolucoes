@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
@@ -64,11 +65,15 @@ public class VagaServiceImpl implements VagaService {
 
 	@Override
 	public List<VagaDTO> buscar(VagaDTO vagaFiltroDTO) {
-		Example<VagaDTO> example = Example.of(vagaFiltroDTO,
+		
+		Vaga vagaFiltro = mapper.map(vagaFiltroDTO, Vaga.class);
+		
+		Example<Vaga> example = Example.of(vagaFiltro,
 				ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING));
 		
-		// return repository.findAll(example);
-		return null;
+		List<Vaga> vagaRetorno = repository.findAll(example);
+		
+		return mapper.map(vagaRetorno, new TypeToken<List<VagaDTO>>() {}.getType());
 	}
 
 	@Override
@@ -82,7 +87,7 @@ public class VagaServiceImpl implements VagaService {
 		
 		Optional<Vaga> vagaRetorno = repository.findById(id);
 		
-		VagaDTO vagaRetornoDTO = mapper.map(vagaRetorno, VagaDTO.class);
+		VagaDTO vagaRetornoDTO = mapper.map(vagaRetorno.get(), VagaDTO.class);
 		
 		return Optional.of(vagaRetornoDTO);
 	}

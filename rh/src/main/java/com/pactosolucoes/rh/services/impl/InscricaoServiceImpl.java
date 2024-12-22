@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 import com.pactosolucoes.rh.domain.Inscricao;
@@ -39,14 +43,11 @@ public class InscricaoServiceImpl implements InscricaoService {
 	}
 
 	@Override
-	public InscricaoDTO inscrever(VagaDTO vagaDTO, UsuarioDTO usuarioDTO) {
+	public InscricaoDTO inscrever(InscricaoDTO inscricaoDTO) {
 
-		Vaga vaga = mapper.map(vagaDTO, Vaga.class);
-		Usuario usuario = mapper.map(usuarioDTO, Usuario.class);
+		Usuario usuarioRetorno = usuarioRepository.findById(inscricaoDTO.getUsuario().getId()).orElseThrow(UsuarioNotFoundException::new);
 
-		Usuario usuarioRetorno = usuarioRepository.findById(usuario.getId()).orElseThrow(UsuarioNotFoundException::new);
-
-		Vaga vagaRetorno = vagaRepository.findById(vaga.getId()).orElseThrow(VagaNotFoundException::new);
+		Vaga vagaRetorno = vagaRepository.findById(inscricaoDTO.getVaga().getId()).orElseThrow(VagaNotFoundException::new);
 
 		Inscricao inscricao = new Inscricao(vagaRetorno,usuarioRetorno);
 		
@@ -68,9 +69,17 @@ public class InscricaoServiceImpl implements InscricaoService {
 	}
 
 	@Override
-	public List<InscricaoDTO> buscar() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<InscricaoDTO> buscar(InscricaoDTO inscricaoFiltroDTO) {
+
+		Inscricao inscricao = mapper.map(inscricaoFiltroDTO, Inscricao.class);
+		
+		Example<Inscricao> example = Example.of(inscricao,
+				ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING));
+		
+		List<Inscricao> inscricaoRetorno = inscricaoRepository.findAll(example);
+		
+		return mapper.map(inscricaoRetorno, new TypeToken<List<InscricaoDTO>>() {}.getType());
+		
 	}
 
 	@Override

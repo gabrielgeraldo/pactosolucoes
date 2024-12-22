@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InscricaoDTO {
-
+	
 	private Vaga vaga;
 
 	private Usuario usuario;

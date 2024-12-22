@@ -9,13 +9,13 @@ import com.pactosolucoes.rh.dtos.VagaDTO;
 
 public interface InscricaoService {
 
-	InscricaoDTO inscrever(VagaDTO vagaDTO, UsuarioDTO usuarioDTO);
+	InscricaoDTO inscrever(InscricaoDTO inscricaoDTO);
 	
 	InscricaoDTO atualizar(InscricaoDTO inscricaoDTO);
 	
 	void deletar(InscricaoDTO inscricaoDTO);
 	
-	List<InscricaoDTO> buscar();
+	List<InscricaoDTO> buscar(InscricaoDTO inscricaoFiltroDTO);
 	
 	Optional<InscricaoDTO> obterPorId(String id);
 	
